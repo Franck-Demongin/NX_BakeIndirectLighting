@@ -27,7 +27,7 @@ import bpy
 
 class NXBIL_OT_render_animation(bpy.types.Operator):
     bl_idname = "nxbil.render_animation"
-    bl_label = "Bake indirect lighting and render animation"
+    bl_label = "Bake Indirect lighting and Render Animation"
     bl_description = "Bake indirect lighting and render animation"
     
     _frame = 0
@@ -146,8 +146,8 @@ class NXBIL_OT_render_image(bpy.types.Operator):
 
 def nxbil_menu(self, context):
     self.layout.separator()
-    self.layout.operator("nxbil.render_image", text="BIL and render Image", icon="RENDER_STILL")
-    self.layout.operator("nxbil.render_animation", text="BIL and render Animation", icon="RENDER_ANIMATION")
+    self.layout.operator("nxbil.render_image", text="BIL and Render Image", icon="RENDER_STILL")
+    self.layout.operator("nxbil.render_animation", text="BIL and Render Animation", icon="RENDER_ANIMATION")
 
 classes = (
     NXBIL_OT_render_animation,
