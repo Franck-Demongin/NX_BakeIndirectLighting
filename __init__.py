@@ -12,7 +12,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 bl_info = {
-    "name" : "NX_BakeIndirectLightning",
+    "name" : "NX_BakeIndirectLighting",
     "author" : "Franck Demongin",
     "description" : "Render animation or frame with EEVEE and bake indirect lighting before each render",
     "blender" : (2, 80, 0),
