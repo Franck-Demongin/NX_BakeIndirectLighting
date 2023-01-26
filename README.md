@@ -20,7 +20,7 @@ In menu Render > BIL and Render Image
 Like a classic render but indirect lighting are baked before performing the render.
 By default, the render is made in a new window. When render is finished, save the image as usual.
 
-Shotcut : Alt F12
+Shortcut : Alt F12
 
 ### Render animation and Bake Indirect Lighting before render each frame
 In menu Render > BIL and Render Animation
