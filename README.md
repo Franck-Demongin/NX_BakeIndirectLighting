@@ -2,8 +2,8 @@
 
 <img src="https://img.shields.io/badge/Blender-3.0.0-green" /> <img src="https://img.shields.io/badge/Python-3.10-blue" /> <img src="https://img.shields.io/badge/Addon-1.1.0.Stable-orange" /> [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-# NX_BakeIndirectLightning
-Bake lndirect lightning before render image or animation with EEVEE
+# NX_BakeIndirectLighting
+Bake lndirect lighting before rendering image or animation with EEVEE
 
 ## Installation
 Download ZIP file on your system.
@@ -13,21 +13,20 @@ Activate the addon
 
 ## Usage
 
-Select EEVEE has render engine.  
-Create a scene with a Light Probe of type Irradiance Volume. 
+Select EEVEE has render engine.
 
 ### Bake Indirect Lighting and render frame
 In menu Render > BIL and Render Image
 
-Like a normal render but indirect lighting are baked before perform render.  
-By default, the render is make in a new window. When render is finish, save the image like usual.
+Like a classic render but indirect lighting are baked before performing the render.
+By default, the render is made in a new window. When render is finished, save the image as usual.
 
-Shotcut : Alt F12
+Shortcut : Alt F12
 
 ### Render animation and Bake Indirect Lighting before render each frame
 In menu Render > BIL and Render Animation
 
-Rendering the animation as a sequence of images. PNG, JPEG, BMP, TIFF, OpenEXR and WebP formats are available, select one in the Output Properties panel.  
+Rendering the animation as an images sequence. PNG, JPEG, BMP, TIFF, OpenEXR and WebP formats are available, select one in the Output Properties panel.
 Select a folder where the images will be saved.
 
 Press ESC to cancel render.
