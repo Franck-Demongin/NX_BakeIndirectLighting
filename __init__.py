@@ -16,7 +16,7 @@ bl_info = {
     "author" : "Franck Demongin",
     "description" : "Render animation or frame with EEVEE and bake indirect lighting before each render",
     "blender" : (2, 80, 0),
-    "version" : (1, 0, 0),
+    "version" : (1, 1, 0),
     "location" : "Topbar, Render menu",
     "warning" : "",
     "category" : "Render"
@@ -45,6 +45,8 @@ class NXBIL_OT_render_animation(bpy.types.Operator):
     }
     _ext = None
     _run = False
+    _area = None
+    _areatype = None
 
     @classmethod
     def poll(cls, context):
@@ -83,6 +85,11 @@ class NXBIL_OT_render_animation(bpy.types.Operator):
         if event.type == 'ESC':
             context.window_manager.event_timer_remove(self._timer)
             scene.render.filepath = self._path
+
+            with context.temp_override(area=self._area):
+                print(self._areatype)
+                context.area.type = self._areatype
+
             self.report({'WARNING'}, f"Exit {self._frame - 1}/{frame_end}")    
             
             return {'CANCELLED'}     
@@ -98,13 +105,10 @@ class NXBIL_OT_render_animation(bpy.types.Operator):
             if not self._run:
                 self._run = True
                 self.execute(context)
-                areas = [area for area in context.screen.areas if area.type in ['VIEW_3D', 'IMAGE_EDITOR']]
-                if len(areas) > 0:
-                    area = areas[-1]
-                    with context.temp_override(area=area):
-                        context.area.type = 'IMAGE_EDITOR'
-                        img = bpy.data.images.load(self._filepath, check_existing=False)
-                        context.area.spaces.active.image = img                
+                with context.temp_override(area=self._area):
+                    context.area.type = 'IMAGE_EDITOR'
+                    img = bpy.data.images.load(self._filepath, check_existing=False)
+                    context.area.spaces.active.image = img                
            
         return {'PASS_THROUGH'}
 
@@ -121,6 +125,11 @@ class NXBIL_OT_render_animation(bpy.types.Operator):
             self._ext = self._formats[format]
         
         self._frame = context.scene.frame_start    
+
+        areas = [area for area in context.screen.areas if area.type not in ['PROPERTIES', 'OUTLINER']]
+        if len(areas) > 0:
+            self._area = areas[-1]
+            self._areatype = self._area.type
         
         self._timer = wm.event_timer_add(0.1, window=context.window)        
         wm.modal_handler_add(self)

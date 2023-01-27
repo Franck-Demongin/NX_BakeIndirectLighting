@@ -1,5 +1,6 @@
 ![hero](https://user-images.githubusercontent.com/54265936/214667043-b3fcf270-7256-4257-a24e-5919d8c828ae.png)
 
+<img src="https://img.shields.io/badge/Blender-3.0.0-green" /> <img src="https://img.shields.io/badge/Python-3.10-blue" /> <img src="https://img.shields.io/badge/Addon-1.1.0.Stable-orange" /> [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 # NX_BakeIndirectLightning
 Bake lndirect lightning before render image or animation with EEVEE
@@ -32,3 +33,16 @@ Select a folder where the images will be saved.
 Press ESC to cancel render.
 
 Shortcut : Shift Alt F12
+
+## Change Log
+
+[1-1-0] - 2023-01-27
+
+### Added
+
+### Changed
+- When rendering the animation, the editor used will be the last one opened in the window.  
+It can be of any type except Outliner and Properties.
+- When rendering is complete, the editor reverts to its original type.
+
+### Fixed
